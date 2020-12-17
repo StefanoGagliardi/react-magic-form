@@ -4,7 +4,8 @@
 **Versione:** 0.2.0  
 **NPM:** react-magic-form
 **Contesto:** Ricerca e sviluppo  
-**DEMO:**: [Demo sul mio sito personale, qui.](https://gagliardistefano.it/react-form/index.html)
+**DEMO:** [Demo sul mio sito personale, qui.](https://gagliardistefano.it/react-form/index.html)
+**Coverage:** Non disponibile
 
 **Obbiettivo:** Creare un plugin per generare e gestire form tramite un solo oggetto javascript senza dover scrivere nemmeno una riga di DOM / View. Ci si vuole basare su [React Hook Form](https://react-hook-form.com/) per vari motivi.
 
@@ -15,30 +16,17 @@ Ho deciso di fare una repo in quanto è un progetto che voglio completare, sarà
 **Linee guida documentazione codice:** [JSDOC](https://jsdoc.app/)
 **NPM nome scelto disponibile:** react-magic-form
 
-## Pubblicazione NPM - v.0.0.1
+## Get started - v.0.2.0
 
-Prova della pubblicazione, con conseugente integrazione e test nella demo. Inoltre si proverà a fare na prima stesura di "Testing" in stile "user" per testare i form.
+**ES5 Javascript build:**
 
-1. Pubblicazione: asd
+1. `npm install react-magic-form`
 
-## Avvio progetto
+**Typescript support:**
 
-**NB:** dopo "run start" se il linter rompe i coglioni sul dom in tsconfig.json sostiturie la seguente riga con questa: `"jsx": "react"`
+1. `npm install @types/react-magic-form`
 
-1. npm run start - avvio sviluppo locale live
-2. npm run build - crea la build
-3. npm run test - Avvio della suite di test
-4. npm run lint - Avvio controllo e autofix degli errori di stile
-
-### Get started - Documentazione
-
-#### Installazione
-
-TODO: Aggungere il pacchetto ad NPM  
-`npm install rect-form-generator`  
-TODO: Supporto per yarn?
-
-#### Primo utilizzo
+### Primo utilizzo
 
 Esempio su come utilizzare il componente con supporto a Typescript per la generazione di un
 semplice form che utilizza: Griglia dinamica, diverse validazione, errori personalizzati
@@ -46,63 +34,63 @@ semplice form che utilizza: Griglia dinamica, diverse validazione, errori person
 **Importazione e configurazione:**
 
 ```ts
-import { FormConfiguration } from "FormGenerator";
-import FormGenerator from "../components/FormGenerator/FormGenerators";
+import { FormConfiguration } from 'FormGenerator';
+import FormGenerator from '../components/FormGenerator/FormGenerators';
 
 export const FormPage: React.FC = (): ReactElement => {
   const formConfig: FormConfiguration = {
-    title: "First form generated",
+    title: 'First form generated',
     subTitle: "My first subtitle for my form generator. \n I'ms so",
     submit: {
-      endpoint: "http://localhost:5000/formSubmit",
-      method: "POST",
+      endpoint: 'http://localhost:5000/formSubmit',
+      method: 'POST',
       backend: true,
       onSubmit: (data: any) => {
         return data;
       },
     },
     buttonSubmit: {
-      text: "Registrati",
+      text: 'Registrati',
       loading: true,
-      dom: "button",
+      dom: 'button',
       block: false,
-      layout: "1/3",
-      class: "custom-submit-class",
-      id: "submitID",
+      layout: '1/3',
+      class: 'custom-submit-class',
+      id: 'submitID',
     },
     fields: [
       {
-        type: "email",
-        label: "Indirizzo email",
-        layout: "1/2",
-        id: "email",
-        name: "email",
+        type: 'email',
+        label: 'Indirizzo email',
+        layout: '1/2',
+        id: 'email',
+        name: 'email',
         placeholder: "Inserire l'indirizzo email",
         validation: {
           required: true,
         },
       },
       {
-        type: "email",
-        label: "Ripetere indirizzo email",
-        layout: "1/2",
-        id: "repeatEmail",
-        name: "repeatEmail",
+        type: 'email',
+        label: 'Ripetere indirizzo email',
+        layout: '1/2',
+        id: 'repeatEmail',
+        name: 'repeatEmail',
         placeholder: "Ripetere l'indirizzo email",
         validation: {
           required: {
             value: false,
-            message: "Il campo ripeti email è richeisto",
+            message: 'Il campo ripeti email è richeisto',
           },
         },
       },
       {
-        type: "text",
-        label: "Nome",
-        layout: "1/3",
-        id: "firstName",
-        name: "firstName",
-        placeholder: "Inserire il nome",
+        type: 'text',
+        label: 'Nome',
+        layout: '1/3',
+        id: 'firstName',
+        name: 'firstName',
+        placeholder: 'Inserire il nome',
         validation: {
           required: true,
           minLength: 2,
@@ -110,12 +98,12 @@ export const FormPage: React.FC = (): ReactElement => {
         },
       },
       {
-        type: "text",
-        label: "Cognome",
-        layout: "1/3",
-        id: "lastName",
-        name: "lastName",
-        placeholder: "Inserire il cognome",
+        type: 'text',
+        label: 'Cognome',
+        layout: '1/3',
+        id: 'lastName',
+        name: 'lastName',
+        placeholder: 'Inserire il cognome',
         validation: {
           required: true,
           minLength: 2,
@@ -123,12 +111,12 @@ export const FormPage: React.FC = (): ReactElement => {
         },
       },
       {
-        type: "text",
-        label: "Telefono",
-        layout: "1/3",
-        id: "phone",
-        name: "phone",
-        placeholder: "Inserire il telefono",
+        type: 'text',
+        label: 'Telefono',
+        layout: '1/3',
+        id: 'phone',
+        name: 'phone',
+        placeholder: 'Inserire il telefono',
         validation: {
           required: true,
           pattern: /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
@@ -200,7 +188,7 @@ Se usare il default o impostarne uno personalizzato:
 
 ```ts
 const defaultMessage = {
-  required: "Il campo è richiesto",
+  required: 'Il campo è richiesto',
   min: `Il valore deve essere maggiore di ${min}`,
   max: `Il valore deve essere minore di ${max}`,
   minLength: `La lunghezza minima è {minLength} caratteri`,
@@ -273,7 +261,7 @@ declare type Submit = {
   endpoint: string;
 
   // Metodo della chiamata
-  method: "GET" | "POST" | "PUT" | "DELETE";
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE';
 
   // Indicare se effetuare o meno la chiamata al backend
   backend: boolean;
@@ -300,13 +288,13 @@ declare type ButtonSubmit = {
   loading?: boolean;
 
   // Tipo di elemento html da renderizzare. Default: "input
-  dom?: "input" | "button";
+  dom?: 'input' | 'button';
 
   // Button style: button block. Default: false
   block: boolean;
 
   // Button layout columns. Default: "1/3"
-  layout: "1/3";
+  layout: '1/3';
 
   // Eventuali classi da aggiungere. Default: "fg__button-submit"
   class?: string;
@@ -327,93 +315,3 @@ interface Response {
   data: any;
 }
 ```
-
-### Roadmap per la prima release
-
-**Task principali:**
-
-1. [x] - Implementare Passowrd
-2. [x] - Implementare Textarea
-3. [x] - Implementare Select
-4. [x] - Implementare checkbox
-5. [ ] - Submit
-6. [ ] - Submit FormGenerato error or success
-7. [ ] - Submit custom errorCallback and successCallback
-8. [ ] - Responsive
-9. [ ] - Test come modulo su un nuovo progetto
-10. [ ] - INPUT add ReadOnly e Disabled Params
-
-#### Folder structure
-
-Struttura dei file principali del componente.
-
-./src/components/  
-├── ...  
-├── FormGenerator/fields # Input type render  
-│ ├── InputText.tsx # Input type text  
-├── FormGenerator/types # Module types  
-│ ├── index.d.ts # Main type  
-│ ├── validator.d.ts # Validator types  
-├── FormGenerator # Component folder  
-│ ├── FormGenerator.tsx # Entry component  
-│ ├── FormHeading.tsx # Form heading  
-│ ├── FormFields.tsx # Form fields wrapper  
-│ ├── FormGeneratorFields.tsx # Form field type generator - switch type
-
-#### Idee
-
-1. Tailwind css per darkmode?
-   CI sta un sacco, ma non usandolo in nessun progetto aggiungerlo in un seocndo momento come "possibilità".
-
-2. Helpers grafiche pronte all'uso pe lo sviluppo.
-   2.1 File scss "helpers.scss" contiene un mixins che genera in poche righe il container di bootastrap.
-
-3. Perfomance: [React Hook Form Context Perfomance](https://react-hook-form.com/advanced-usage#FormProviderPerformance)
-   Ottimizzare le permonce del context attraver React.memo
-
-4. Paletta colori identificativa del plugin (anche se sarà uso inerno)
-
-5. Nel file scss del modulo distinguere lo stile "Core" da quello che può fare da "tema" per gli input, spazi ecc.
-
-6. Aggiungre gli esempi alla doc, nel senso linkare le pagine con i vari esempi che sto facendo per sviluppare il plugin?
-
-7. Creare i primi test o pensare i tipi di test da fare con Jest.
-
-##### Features candidate per la V 1.0.0
-
-Lista di features da implementare dopo la prima release:
-
-1. [ ] - Input: invalid state + invalid icon
-2. [ ] - Props for enable valid status on input (default disabled).
-     Input: valid state + success icon.
-3. [ ] - Validazione tramite "validae" (custom callback) non può avere messaggi di errore custom. Capre come fare (RHF non prevede messaggi cutom per questo tipo di validazione)
-4. [ ] - Possibilità di attivare / disattivare input in progressione in base al valore del input precedente
-5. [ ] - Valori iniziali di default
-6. [ ] - Aggiungere la label agli input (SEO)
-7. [ ] - Stilizzare il checkbox
-8. [ ] - Finire di templettizare l'scss con le variabili
-9. [ ] - Fare ottimizzazioni come uella di useCallback(onSubmit)
-
-###### Eesempi
-
-Lista di pagine con relativi esempi:
-
-1. [ ] - "/" - General form with all features2
-2. [x] - "/form-page-grid" - Form with grid system
-3. [x] - "/form-page-validation" - Form with validation
-4. [x] . "/form-page-input" - Form con tipi di input supportati
-
-###### PRODUCTION DEMO
-
-Messa online della demo (sarebbe figo testare la CI).
-Per fare prima carico il progetto buildato esattamente cosi come è: senza una vera "bundlelizazione" del plugin.
-
-**Quick go in prod:**
-
-1. Quindi è necessario buildare tutto.
-
-**Rimozione console.log() nella build**
-
-Atraverso un estensione di babel possiamo rimuovere tutti i console.log dalla build.
-
-`npm install babel-plugin-transform-remove-console --save-dev`
