@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Dev github link
+.repo-link {
+  color: #9017ff;
+  font-weight: 700;
+  font-size: 22px;
+  text-decoration: none !important;
+}
+
+// Debug class
+.debug {
+  border: 1px solid red;
+}

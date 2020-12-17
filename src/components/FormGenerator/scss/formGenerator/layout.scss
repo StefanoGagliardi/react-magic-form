@@ -1,0 +1,71 @@
+// ======================= FORM HEADING ===============
+#formGenerator {
+  header {
+    text-align: center;
+
+    .fg_title {
+    }
+
+    .fg__subtitle {
+    }
+  }
+}
+
+
+// ======================= LAYOUT ===============
+#formGenerator {
+  .fg__body {
+    margin-top: 40px;
+
+    .fg__select-wrapper {
+      position: relative;
+    }
+  }
+  .row {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+
+    .fg__col-full,
+    .fg__col-half,
+    .fg__col-third,
+    .fg__col-fourth {
+      position: relative;
+      width: 100%;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    .fg__col-full {
+      display: inline-block;
+      width: 100%;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .fg__col-half {
+      display: inline-block;
+      width: 50%;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .fg__col-third {
+      display: inline-block;
+      width: 33.3333333333%;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .fg__col-fourth {
+      display: inline-block;
+      width: 25%;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}

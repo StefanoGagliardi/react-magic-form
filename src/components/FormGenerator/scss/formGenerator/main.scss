@@ -1,0 +1,38 @@
+/**
+ * SASS styles for React Form Generator module
+ *
+ * @vesion 0.1.0
+ * @author Stefano Gagliardi <stefano.gagliardi@sitisrl.it>
+ */
+
+// Grid and structure
+@import "./config";
+
+// Grid and structure
+@import "./layout";
+
+// Input styles
+@import "./fields";
+
+// Sping loader for input
+@import "./loader";
+
+// Normalize env
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+// General
+#formGenerator {
+  a {
+    color: $FGMainColor;
+    opacity: 1;
+    text-decoration: none;
+    
+    &:hover {
+      opacity: .8;
+    }
+  }
+}

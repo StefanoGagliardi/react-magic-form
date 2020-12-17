@@ -1,0 +1,24 @@
+// Plugin development helper classes and styles
+@import "helpers";
+
+// Specific site site / page /component
+@import "start";
+@import "nav";
+
+// Helpers.scss
+// Generate developer helpers
+@include addContainer();
+@include addSectionDev();
+@include addBackgroundColors();
+
+// Ovveride scss config
+$FGCheckboxTextPaddingLeft: 55px;
+$FGMainColor: #DC2626;
+
+// Plugin style entry file.
+// Packgage: "FormGenerator"
+@import "formGenerator/main";
+
+// Ovveride scss config
+$FGCheckboxTextPaddingLeft: 55px;
+$FGMainColor: #DC2626;

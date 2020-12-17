@@ -1,0 +1,73 @@
+/**
+ * Generate bootstrap container
+ *
+ * version -  0.1.0
+ * @todo - implementarlo come mixins (studiare bootsrtrap
+ */
+@mixin addContainer() {
+
+  .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    .container {
+      max-width: 1400px;
+    }
+  }
+}
+
+/**
+ * Generate section style for dev
+ *
+ * version -  0.1.0
+ */
+@mixin addSectionDev() {
+  .section {
+    padding: 40px 0px;
+
+    &:nth-of-type(even) {
+      background: #eee;
+    }
+  }
+}
+
+/**
+ * Generate background color helper classes
+ *
+ * version -  0.1.0
+ */
+ @mixin addBackgroundColors() {
+   .bg-white {
+     background: #fff;
+     background-color: #fff;
+   }
+
+   .bg-light {
+     background: #f9f9f9;
+     background-color: #f9f9f9;
+   }
+ }
+ 
