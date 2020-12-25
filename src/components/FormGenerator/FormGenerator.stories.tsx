@@ -1,8 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { FormGenerator } from './FormGenerators';
-import { FormConfiguration } from 'FormGenerator';
-
+import { FormConfiguration } from '../../types';
 /**
  * Super modo per creare i casi di s
  */

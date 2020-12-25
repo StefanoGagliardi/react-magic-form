@@ -1,4 +1,4 @@
-import { FieldSelectData } from "FormGenerator";
+import { FieldSelectData } from "../../types";
 
 interface MessageDefault {
   required: string;

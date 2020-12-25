@@ -1,5 +1,5 @@
-import { FormHeadingProps } from "FormGenerator";
 import React, { ReactElement } from "react";
+import { FormHeadingProps } from "../../types";
 
 export const FormHeading: React.FC<FormHeadingProps> = (props: FormHeadingProps): ReactElement => {
   const { title, subTitle } = props;

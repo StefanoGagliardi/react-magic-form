@@ -6,8 +6,7 @@ import classNames from "classnames";
 import { useFormContext } from "react-hook-form";
 
 // Import custom
-import { FieldBase, FieldSelectData } from "FormGenerator";
-import { FieldValidation } from "../types/validator";
+import { FieldBase, FieldSelectData, FieldValidation, ValidationValueMessage } from "../../../types";
 import { fetchData, getSelectDefaultValue } from "../Helpers";
 
 export const InputSelect: React.FC<FieldBase> = (props: FieldBase): ReactElement => {
@@ -25,7 +24,7 @@ export const InputSelect: React.FC<FieldBase> = (props: FieldBase): ReactElement
   useEffect(() => {
     let flag = false;
     console.log("props.validation.required", props.validation.required);
-    if (props.validation.required.value) {
+    if ((props.validation.required as ValidationValueMessage).value) {
       flag = true;
     }
     if (props.validation.required === true) {
@@ -117,10 +116,10 @@ export const InputSelect: React.FC<FieldBase> = (props: FieldBase): ReactElement
       <div className="invalid-feedback">
         {errors[props.name]?.type == "validate" ? (
           <>
-            {props?.validation?.required?.message === "" ? (
+            {(props?.validation?.required as ValidationValueMessage)?.message === "" ? (
               <span>Selezionare un opzione</span>
             ) : (
-              <span>{props?.validation?.required?.message}</span>
+              <span>{(props?.validation?.required as ValidationValueMessage)?.message}</span>
             )}
           </>
         ) : (

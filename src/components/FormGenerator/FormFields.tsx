@@ -1,6 +1,9 @@
 // Import core
-import { Field, FormFieldsProps } from "FormGenerator";
 import React, { ReactElement, useEffect, useState } from "react";
+
+// Import third parts
+
+// Import custom
 import InputCheckbox from "./fields/InputCheckbox";
 import InputEmail from "./fields/InputEmail";
 import InputPassword from "./fields/InputPassword";
@@ -8,10 +11,7 @@ import InputSelect from "./fields/InputSelect";
 import InputText from "./fields/InputText";
 import InputTextarea from "./fields/InputTextarea";
 import { getLayoutColClass, getLayoutValue } from "./Helpers";
-
-// Import third parts
-
-// Import custom
+import { Field, FormFieldsProps } from '../../types';
 
 export const FormFields: React.FC<FormFieldsProps> = (props: FormFieldsProps): ReactElement => {
   const { fields } = props;
@@ -33,7 +33,7 @@ export const FormFields: React.FC<FormFieldsProps> = (props: FormFieldsProps): R
       val = val + currentVal;
       fieldsTemp.push(field);
       if (index > 0) {
-        const nextFieldVal: number = getLayoutValue(fields[index - 1].layout);
+        const nextFieldVal: number = getLayoutValue(fields[index - 1].layout as string);
         if (val < 1 && val + nextFieldVal > 1) {
           val = val + 1;
         }

@@ -5,7 +5,6 @@ import React, { ReactElement, useCallback } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 
 // Custom packages
-import { FormGeneratorProps } from "FormGenerator";
 import { FormFields } from "./FormFields";
 import { FormHeading } from "./FormHeading";
 import FormButonSubmit from "./FormButtonSubmit";
@@ -13,6 +12,7 @@ import { onSubmitBackendCall } from "./Helpers";
 
 // Import styles
 import "./scss/styles.scss";
+import { FormGeneratorProps } from "../../types";
 
 export const FormGenerator: React.FC<FormGeneratorProps> = (props: FormGeneratorProps): ReactElement => {
   const { form } = props;

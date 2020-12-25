@@ -4,10 +4,10 @@ import React, { ReactElement, useEffect, useState } from "react";
 // Third packages
 // import { useForm, FormProvider, useFormContext } from "react-hook-form";
 
-// Custom packages
-import { ButtonSubmit } from "FormGenerator";
+// Custom package
 import { getLayoutColClass } from "./Helpers";
 import classNames from "classnames";
+import { ButtonSubmit } from "../../types";
 
 const FormButonSubmit: React.FC<ButtonSubmit> = (props: ButtonSubmit): ReactElement => {
   const [loading, setLoading] = useState<boolean>(true);

@@ -6,8 +6,7 @@ import classNames from "classnames";
 import { useFormContext } from "react-hook-form";
 
 // Import custom
-import { FieldBase } from "FormGenerator";
-import { FieldValidation } from "../types/validator";
+import { FieldBase, FieldValidation, ValidationValueMessage } from "../../../types";
 
 export const InputText: React.FC<FieldBase> = (props: FieldBase): ReactElement => {
   // const [invalid, setInvalid] = useState<boolean>(true);
@@ -25,25 +24,25 @@ export const InputText: React.FC<FieldBase> = (props: FieldBase): ReactElement =
 
     // If exists set minLength state for error message
     if (props.validation.minLength) {
-      if (props.validation.minLength.value) {
-        setMinLength(parseInt(props.validation.minLength.value));
+      if ((props.validation.minLength as ValidationValueMessage).value) {
+        setMinLength(parseInt((props.validation.minLength as ValidationValueMessage).value as string));
       } else {
-        setMinLength(parseInt(props.validation.minLength));
+        setMinLength(parseInt(props.validation.minLength as string));
       }
     }
 
     // If exists set maxLength state for error message
     if (props.validation.maxLength) {
-      if (props.validation.maxLength.value) {
-        setMaxLength(parseInt(props.validation.maxLength.value));
+      if ((props.validation.maxLength as ValidationValueMessage).value) {
+        setMaxLength(parseInt((props.validation.maxLength as ValidationValueMessage).value as string));
       } else {
-        setMaxLength(parseInt(props.validation.maxLength));
+        setMaxLength(parseInt(props.validation.maxLength as string));
       }
     }
 
     // Normalize equalTo validation with validate method
-    if (props.validation.equalTo !== undefined && props.validation.equalTo.value) {
-      const equalToField = props.validation.equalTo.value;
+    if (props.validation.equalTo !== undefined && (props.validation.equalTo as ValidationValueMessage).value) {
+      const equalToField = (props.validation.equalTo as ValidationValueMessage).value as string;
       rawValidation.validate = (value: string) => value === watch(equalToField);
     }
 
@@ -53,7 +52,7 @@ export const InputText: React.FC<FieldBase> = (props: FieldBase): ReactElement =
 
   // Update error object message for equalTo
   useEffect(() => {
-    if (errors[props.name]?.type == "validate" && props.validation.equalTo.value) {
+    if (errors[props.name]?.type == "validate" && (props.validation.equalTo as ValidationValueMessage).value) {
       setError("repeatEmail", {
         type: "equalTo",
         message: "I due indirizzi email devono coincidere",

@@ -4,10 +4,9 @@ import React, { ReactElement, useEffect, useState } from "react";
 // Import third parts
 import classNames from "classnames";
 import { useFormContext } from "react-hook-form";
+import { FieldBase, FieldValidation } from "../../../types";
 
 // Import custom
-import { FieldBase } from "FormGenerator";
-import { FieldValidation } from "../types/validator";
 
 export const InputCheckbox: React.FC<FieldBase> = (props: FieldBase): ReactElement => {
   // const [invalid, setInvalid] = useState<boolean>(true);
